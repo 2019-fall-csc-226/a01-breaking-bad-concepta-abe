@@ -1,6 +1,6 @@
 ######################################################################
-# Author: Scott Heggen & Emily Lovell           ****** TODO: CHANGE THIS!! ******
-# username: heggens & lovelle             ****** TODO: CHANGE THIS!! *****
+# Author: Abraham Moreno
+# username: TheOneAndOnlyAbe
 #
 # Purpose: Designed to compute the total chocolate desired by the user
 #
@@ -27,7 +27,7 @@ num_lbs = int(input("How many lbs of chocolate in a box? \n"))
 # Section 2: Computation Section
 lbs_choc = num_boxes * num_lbs
 oz_per_lb = 16
-oz_choc = lbs_choc * oz_per_lb
+oz_choc = lbs_choc / oz_per_lb
 
 
 # Section 3: Conditional (Decision-making) Section
