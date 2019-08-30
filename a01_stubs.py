@@ -18,39 +18,19 @@
 # (Required) Task 1
 # TODO Ask user for their birth year
 def findSign(year, passThisAlong):
-    arrOfSigns = ["Snake", "Horse", "Goat", "Monkey", "Rooster", "Dog", "Pig", "Rat", "Ox", "Tiger", "Rabbit", "Dragon"]
+    arrOfSigns = ["Monkey", "Rooster", "Dog", "Pig", "Rat", "Ox", "Tiger", "Rabbit", "Dragon","Snake", "Horse", "Goat"]
     if passThisAlong == 1:
-        for i in range(2001, 2013):
-            if year == i:
-                print("You are a: " + arrOfSigns[i - 2001])
+        print("You are a: " + arrOfSigns[year % 12])
     else:
-        for i in range(2001, 2013):
-            if year == i:
-                print("Your friend is a: " + arrOfSigns[i - 2001])
-
-def isYearInRange(year, passThisAlong):
-    if passThisAlong == 1:
-        if year < 2001 or year > 2012:
-            print("Sorry, you must be born between 2001 and 2012...")
-            print("Try again...")
-            askQuestion(1)
-        else:
-            findSign(year, 1)
-    else:
-        if year < 2001 or year > 2012:
-            print("Sorry, your friend must be born between 2001 and 2012...")
-            print("Try again...")
-            askQuestion(2)
-        else:
-            findSign(year, 2)
+        print("You're friend is a: " + arrOfSigns[year % 12])
 
 def askQuestion(passThisAlong):
     if passThisAlong == 1:
         birthYear = int(input("What year were you born in?"))
-        isYearInRange(birthYear, passThisAlong)
+        findSign(birthYear, passThisAlong)
     else:
         birthYear = int(input("What year was your friend born in?"))
-        isYearInRange(birthYear, 2)
+        findSign(birthYear, 2)
 
 askQuestion(1)
 askQuestion(2)
