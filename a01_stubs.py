@@ -17,7 +17,17 @@
 ######################################################################
 # (Required) Task 1
 # TODO Ask user for their birth year
+def findSign(year):
+    arrOfSigns = ["Snake", "Horse", "Goat", "Monkey", "Rooster", "Dog", "Pig", "Rat", "Ox", "Tiger", "Rabbit", "Dragon"]
+    for i in range(2001, 2013):
+        if year == i:
+            print("You are a: " + arrOfSigns[i - 2001])
 
+birthYear = int(input("What year were you born in?"))
+if birthYear < 2001 or birthYear > 2012:
+    print("Sorry, you must be born between 2001 and 2012...")
+    quit()
+findSign(birthYear)
 
 # TODO Check the year using if conditionals, and print the correct animal for that year.
 # See the a01_pets.py for examples
