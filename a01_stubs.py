@@ -12,48 +12,38 @@
 #   Original Author: Dr. Scott Heggen
 ######################################################################
 
-# Remember to read the detailed notes about each task in the A01 document.
-
-######################################################################
-# (Required) Task 1
-# TODO Ask user for their birth year
+# This function takes in the person's birth year and does logic to find the person's sign.
+# passThisAlong is the question. If it = 1, then it asks the first question. If not, it asks the second question.
 def findSign(year, passThisAlong):
+    # This is a list of all the signs
     arrOfSigns = ["Monkey", "Rooster", "Dog", "Pig", "Rat", "Ox", "Tiger", "Rabbit", "Dragon","Snake", "Horse", "Goat"]
     if passThisAlong == 1:
+        # This finds the remainder of the year given over 12 and chooses the sign in that place.
         print("You are a: " + arrOfSigns[year % 12])
     else:
         print("You're friend is a: " + arrOfSigns[year % 12])
 
+# This function is used to choose which question should be called(passThisAlong). It also calls findSign with the value of birthYear.
 def askQuestion(passThisAlong):
     if passThisAlong == 1:
-        birthYear = int(input("What year were you born in?"))
-        findSign(birthYear, passThisAlong)
+        # Stores the value of whatever the user inputs
+        # Checks to see if the value is a digit. Learned about isdigit() thanks to:
+        # https://stackoverflow.com/questions/354038/how-do-i-check-if-a-string-is-a-number-float
+        birthYear = input("What year were you born in?")
+        if birthYear.isdigit():
+            # Calls findSign with the birthYear and 1 indicating the first question.
+            findSign(int(birthYear), 1)
+        else:
+            print("Please input a number value(2000, 2001, etc.)")
+            askQuestion(1)
     else:
-        birthYear = int(input("What year was your friend born in?"))
-        findSign(birthYear, 2)
+        birthYear = input("What year was your friend born in?")
+        if birthYear.isdigit():
+            findSign(int(birthYear), 2)
+        else:
+            print("Please input a number value(2000, 2001, etc.)")
+            askQuestion(2)
 
+# Calls the question with the question number as a parameter.
 askQuestion(1)
 askQuestion(2)
-
-
-# TODO Check the year using if conditionals, and print the correct animal for that year.
-# See the a01_pets.py for examples
-
-
-######################################################################
-# (Required) Task 2
-# TODO Ask the user for their friend's birth year
-
-
-# TODO Similar to above, check your friend's year using if conditionals, and print the correct animal for that year
-
-
-######################################################################
-# (Optional) Task 3
-# TODO Check for compatibility between your birth year and your friend's birth year
-# NOTE: You can always assume the first input is your birth year (i.e., 1982 for me).
-# This way, you are not writing a ton of code to consider every possibility.
-# In other words, only do one row of the sample compatibility table.
-
-
-# TODO print if you are a strong match, no match, or in between
